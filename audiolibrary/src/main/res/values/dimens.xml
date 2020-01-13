@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 录制的语音按钮大小 -->
+    <dimen name="rvoice_item_width">240dp</dimen>
+    <dimen name="rvoice_item_heigh">48dp</dimen>
+    <dimen name="rvoice_item_padding">8dp</dimen>
+    <dimen name="itemline_ge">10.0dip</dimen>
+    <!--语音播放的边框-->
+    <dimen name="audiopadding">15dp</dimen>
+</resources>

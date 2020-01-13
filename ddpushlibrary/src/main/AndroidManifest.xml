@@ -1,0 +1,63 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cn.com.hesc.ddpushlibrary" >
+
+    <!-- KeyguardManager 需要的权限-->
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <!-- DDPush 需要的权限-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+
+        <!-- DDPush start-->
+        <!-- DDPush 服务部分,包含开机自启动,网络状态的监听-->
+        <service
+            android:name="cn.com.hesc.ddpushlibrary.ddpush.service.OnlineService" ></service>
+
+        <receiver
+            android:name="cn.com.hesc.ddpushlibrary.ddpush.receiver.TickAlarmReceiver" >
+        </receiver>
+        <receiver
+            android:name="cn.com.hesc.ddpushlibrary.ddpush.receiver.ConnectivityAlarmReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="cn.com.hesc.ddpushlibrary.ddpush.receiver.BootAlarmReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <!-- DDPush end-->
+
+        <!--app 通知相关功能的通用封装，可在外部自定义实现，start-->
+        <!--app中实际用来接收推送的接收器-->
+        <!-- 在app中自行添加以下PushDemoReceiver，
+        <receiver
+            android:name="com.hesc.android.library.ddpush.module.PushDemoReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="PUSH_ACTION" />
+            </intent-filter>
+        </receiver>
+        -->
+        <!--app中用在黑屏时显示的提示框,此处theme样式的Activity必须继承自Activity -->
+        <activity
+            android:name="cn.com.hesc.ddpushlibrary.ddpush.module.ScreenNoticeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Wallpaper.NoTitleBar"
+            android:launchMode="singleInstance"
+            android:excludeFromRecents="true"
+            android:taskAffinity=""
+            android:configChanges="orientation|keyboardHidden|keyboard|navigation"></activity>
+        <!--app 通知相关功能的通用封装，可在外部自定义实现，end-->
+    </application>
+
+</manifest>

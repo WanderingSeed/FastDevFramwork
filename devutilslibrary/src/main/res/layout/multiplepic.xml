@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/multiple_top_lychoice"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:background="#FFFAEC"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:id="@+id/multiplebackimageview"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/title_back_bg"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="20sp"
+            android:layout_centerInParent="true"
+            android:textColor="#836337"
+            android:text="图片选择"
+            android:gravity="center"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/multipleshowcounttv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#836337"
+            android:textSize="16sp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:text="已选0张"
+            />
+
+        <!--有些需要发送操作的，显示该按钮，隐藏上面的textview-->
+        <Button
+            android:id="@+id/multipleshowcountbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:text="发送"
+            android:enabled="false"
+            android:background="@drawable/sendpicbtn"
+            android:visibility="gone"
+            />
+
+    </RelativeLayout>
+
+
+    <GridView
+        android:id="@+id/id_gridViewchoice"
+        android:layout_below="@id/multiple_top_lychoice"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="@android:color/transparent"
+        android:clipChildren="true"
+        android:gravity="center"
+        android:horizontalSpacing="3dip"
+        android:listSelector="@android:color/transparent"
+        android:numColumns="3"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="3dip"
+        android:layout_marginTop="5dp">
+    </GridView>
+
+    <RelativeLayout
+        android:id="@+id/multiple_bottom_lychoice"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:background="#FFFAEC"
+        android:clickable="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:id="@+id/multiple_choose_dirchoice"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dip"
+            android:text="所有图片"
+            android:textColor="#836337" />
+
+        <TextView
+            android:id="@+id/multiple_total_countchoice"
+            android:layout_width="50dip"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="0张"
+            android:textColor="#836337" />
+    </RelativeLayout>
+
+</RelativeLayout>

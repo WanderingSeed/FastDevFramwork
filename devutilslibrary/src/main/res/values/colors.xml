@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="gray_1">#e1e5e5</color>
+    <color name="subItem_divider">#ebe6df</color>
+    <color name="red">#ff0000</color>
+    <color name="sendbtn_unable">#689F38</color>
+    <color name="sendbtn_press">#33691E</color>
+    <color name="sendbtn_normal">#64DD17</color>
+    <color name="colorPrimary">#1983D1</color>
+    <color name="progresscolor">#FF41EC0D</color>
+    <color name="articletitle">#292929</color>
+    <color name="articlecontent">#9a9a9a</color>
+    <color name="infotimecolor">#A9A9A9</color>
+    <color name="lightcoral">#f08080</color>
+    <color name="deepskyblue">#00bfff</color>
+</resources>

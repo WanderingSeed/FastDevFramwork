@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cn.com.hesc.maplibrary">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+        <activity android:name=".MapActivity" android:screenOrientation="portrait"></activity>
+        <activity android:name="cn.com.hesc.tdsdk.TDMapActivity" android:screenOrientation="portrait"></activity>
+        <activity android:name=".OpenLayerActivity" android:screenOrientation="portrait"></activity>
+    </application>
+
+</manifest>

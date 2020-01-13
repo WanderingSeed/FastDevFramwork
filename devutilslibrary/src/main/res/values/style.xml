@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="liststyle_weixin">
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+        <item name="android:divider">@android:color/transparent</item>
+        <item name="android:dividerHeight">@dimen/divider_height</item>
+        <item name="android:listSelector">@android:color/transparent</item>
+        <item name="android:paddingLeft">@dimen/listview_paddingleft</item>
+        <item name="android:paddingRight">@dimen/listview_paddingright</item>
+        <item name="android:paddingBottom">@dimen/listview_paddingbottom</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+    </style>
+    <style name="liststyle_normal">
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+        <item name="android:divider">@android:color/transparent</item>
+        <item name="android:dividerHeight">@dimen/divider_height</item>
+        <item name="android:listSelector">@android:color/transparent</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+    </style>
+    <style name="anim_popup_dir">
+        <item name="android:windowEnterAnimation">@anim/slide_in</item>
+        <item name="android:windowExitAnimation">@anim/slide_out</item>
+    </style>
+
+    <!--评星-->
+    <style name="myRatingBar" >
+        <item name="android:progressDrawable">@drawable/ratingbg</item>
+        <item name="android:minHeight">50dip</item>
+        <item name="android:maxHeight">50dip</item>
+        <item name="android:thumb">@null</item>
+        <item name="android:isIndicator">false</item>
+    </style>
+</resources>

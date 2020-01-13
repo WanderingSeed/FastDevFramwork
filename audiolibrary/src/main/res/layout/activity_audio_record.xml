@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cn.com.hesc.audiolibrary.audio.AudioRecordActivity"
+    android:background="#9a9a9a">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:text="录制语音"
+        android:textSize="18sp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="30dp"
+        >
+
+        <ImageButton
+            android:id="@+id/delrecord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/audio_delete"
+            />
+
+        <ImageButton
+            android:id="@+id/donerecord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/audio_done"
+            android:longClickable="true"
+            />
+
+        <cn.com.hesc.audiolibrary.audio.RecordVoiceBtn
+            android:id="@+id/recordmedia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/audio_recording"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/audioflag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="#FC726F"
+        android:padding="10dp"
+        android:text="长按录制音频"
+        android:background="@drawable/audio_textview_bg"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp"
+        android:id="@+id/flagline"
+        android:visibility="gone">
+        <cn.com.hesc.audiolibrary.audio.RecordAudioView
+            android:id="@+id/audioflagview"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            />
+        <ImageView
+            android:id="@+id/playstopaudio"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_below="@id/audioflagview"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/audiorecordplay"/>
+    </RelativeLayout>
+</FrameLayout>

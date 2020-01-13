@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/gridview_rowcontainer_ll"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="horizontal" >
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/gridview_rowopenflag_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="3dp"
+        android:layout_alignBottom="@id/gridview_rowcontainer_ll"
+        android:layout_alignParentLeft="true"
+        android:scaleType="centerInside"
+        android:background="@android:color/holo_blue_light"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/gridview_rowbtm_ll"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gridview_rowcontainer_ll"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <com.hesc.android.fastdevframework.view.dragexpandgridview.view.CustomSubGridView
+            android:id="@+id/gridview_child_gridview"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#eaf4ff"
+            android:orientation="vertical" >
+        </com.hesc.android.fastdevframework.view.dragexpandgridview.view.CustomSubGridView>
+    </LinearLayout>
+
+</RelativeLayout>

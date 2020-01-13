@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".photo.CameraActivity"
+    android:orientation="vertical">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="拍照拍视频"
+        android:onClick="takePhoto"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="自定义图库"
+        android:onClick="picfactory"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="预览多张图"
+        android:onClick="prePhoto"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="选过的图进行涂鸦"
+        android:onClick="editPhoto"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="金华定制"
+        android:onClick="jhPhoto"/>
+
+    <cn.com.hesc.ratingbar.RatingBar
+        android:id="@+id/barrier"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:starCount="5"
+        app:clickable="true"
+        app:starEmpty="@drawable/rating_normal"
+        app:starFill="@drawable/rating_active"
+        style="@style/myRatingBar">
+
+    </cn.com.hesc.ratingbar.RatingBar>
+
+</LinearLayout>

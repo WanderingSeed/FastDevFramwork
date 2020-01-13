@@ -1,0 +1,82 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'android.keystore'
+            keyPassword '123456'
+            storeFile file('D:/AS_Project/2018_SCMcrowd_jinhua/app/android.keystore')
+            storePassword '123456'
+        }
+    }
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    defaultConfig {
+        applicationId "cn.com.hesc.fastdevframwork"
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        /*没有64位的so文件，指定32位的，同时需要在工程根目录下的gradle.properties文件里加入
+        * android.useDeprecatedNdk=true
+        * */
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
+        }
+
+        flavorDimensions "versionCode"//1.配置dimension
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable false
+        }
+    }
+
+    productFlavors {
+        pro{
+            applicationId = "cn.com.hesc.fastdevframwork.test"
+            resValue "string", "app_name", "测试版"//设置测试版的appname，然后记得将strings文件中的app_name删掉
+        }
+
+        normal{
+            applicationId = "cn.com.hesc.fastdevframwork.pro"
+            resValue "string", "app_name", "正式版"
+        }
+    }
+
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    androidTestImplementation(rootProject.ext.dependencies.espresso, {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    repositories {
+        maven { url "http://192.168.1.14:8081/nexus/content/repositories/snapshots/" }
+    }
+    implementation rootProject.ext.dependencies.appcompatV7
+    implementation rootProject.ext.dependencies.constraintlayout
+    implementation rootProject.ext.dependencies.gson
+    implementation rootProject.ext.dependencies.recycleview
+    testImplementation rootProject.ext.dependencies.junit
+    implementation project(':devutilslibrary')
+    implementation('com.hesc.android.library:MapLibrary:2.3.0-SNAPSHOT', {
+        exclude group: 'com.hesc.android.library', module: 'WebUtilsLibrary'
+        exclude group: 'com.hesc.android.library', module: 'FastDevLibrary'
+        exclude group: 'com.hesc.android.library', module: 'HescLibrary_GpsStatus'
+        exclude group: 'com.hesc.android.library', module: 'MaterialDialogLibrary'
+    })
+    implementation project(':metrialdialoglibrary')
+    implementation project(':timepicklibrary')
+    implementation project(':webutilslibrary')
+    implementation project(':wheelviewlibrary')
+    implementation project(':databaseutilslibrary')
+    implementation project(':zxinglibrary')
+    implementation project(':gpslibrary')
+    implementation project(':audiolibrary')
+}

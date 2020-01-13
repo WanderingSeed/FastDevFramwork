@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/updatebar_height"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/updatebar_content_height" >
+
+        <TextView
+            android:id="@+id/update_title_textView"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/updatebar_height"
+            android:gravity="center"
+            android:textColor="#000000" />
+
+        <FrameLayout
+            android:id="@+id/update_content_frameLayout"
+            android:layout_width="40.0dip"
+            android:layout_height="40.0dip"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15.0dip" />
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/update_divider_imageView"
+        android:layout_width="fill_parent"
+        android:layout_height="1.0dip"
+        android:scaleType="fitXY"
+        android:src="@drawable/divider_horizontal_timeline" />
+
+</LinearLayout>

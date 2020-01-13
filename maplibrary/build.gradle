@@ -1,0 +1,105 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    repositories {
+        maven { url "http://192.168.1.14:8081/nexus/content/repositories/snapshots/" }
+    }
+    implementation rootProject.ext.dependencies.appcompatV7
+    implementation 'com.hesc.android.library:WebUtilsLibrary:1.8.5-SNAPSHOT'
+    implementation 'com.hesc.android.library:FastDevLibrary:4.0.24-SNAPSHOT'
+    implementation 'com.hesc.android.library:HescLibrary_GpsStatus:1.0.8-SNAPSHOT'
+    implementation 'com.hesc.android.library:MaterialDialogLibrary:1.0.6-SNAPSHOT'
+    implementation rootProject.ext.dependencies.glide
+    testImplementation 'junit:junit:4.12'
+    implementation files('libs/tiandituapi3.0.1.jar')
+}
+
+apply plugin: 'maven'
+
+def isReleaseBuild() {
+    return VERSION_NAME.contains("SNAPSHOT") == false
+}
+
+def getRepositoryUsername() {
+    return hasProperty('NEXUS_USERNAME') ? NEXUS_USERNAME : ""
+}
+
+def getRepositoryPassword() {
+    return hasProperty('NEXUS_PASSWORD') ? NEXUS_PASSWORD : ""
+}
+
+afterEvaluate { project ->
+
+    //add configuration mvnpub to replace the default compile configuration when uploadArchives
+    configurations {
+        mvnpub
+    }
+
+    uploadArchives {
+        repositories {
+            mavenDeployer {
+
+                //replace the default compile to mvnpub to prevent the broken project dependency
+                conf2ScopeMappings.mappings.remove(configurations.compile)
+                conf2ScopeMappings.addMapping(300, configurations.mvnpub, "compile")
+
+                pom.groupId = GROUP
+                pom.artifactId = POM_ARTIFACT_ID
+                pom.version = VERSION_NAME
+                repository(url: RELEASE_REPOSITORY_URL) {
+                    authentication(userName: getRepositoryUsername(), password: getRepositoryPassword())
+                }
+                snapshotRepository(url: SNAPSHOT_REPOSITORY_URL) {
+                    authentication(userName: getRepositoryUsername(), password: getRepositoryPassword())
+                }
+            }
+        }
+    }
+
+//    task printMappings << {
+//        conf2ScopeMappings.mappings.each { k, v ->
+//            println "configuration: ${k}"
+//            println "mapping: \n\tpriority: ${v.priority}\n\tscope: ${v.scope}"
+//            println "========================================"
+//        }
+//    }
+
+    task androidSourcesJar(type: Jar) {
+        classifier = 'sources'
+        from android.sourceSets.main.java.sourceFiles
+    }
+
+    artifacts {
+        archives androidSourcesJar
+    }
+}

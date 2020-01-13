@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cn.com.hesc.fastdevframwork">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+
+    <!--android:label="@string/app_name"-->
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar">
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="8oDftRSFQlvgcxLuL8GpNw8oTZ1dvS1U" />
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".metrialdialog.DialogActivity" />
+        <activity android:name=".timepickdemo.TimePickActivity" />
+        <activity android:name=".webdemo.WebUtilsActivity" />
+        <activity android:name=".wheelview.WheelViewActivity" />
+        <activity android:name=".photo.CameraActivity" />
+        <activity android:name=".recycleview.RecycleViewActivity" />
+        <activity android:name=".zxing.ZxingActivity" />
+        <activity android:name=".map.MapTestActivity" />
+        <activity android:name=".gps.GpsTestActivity" />
+        <activity android:name=".backgroundservice.BackActivity" />
+
+        <service
+            android:name=".backgroundservice.MybgService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".settting.OpenSettingActivity"></activity>
+    </application>
+
+</manifest>

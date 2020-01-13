@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context="cn.com.hesc.picture.Camera_VideoActivity">
+    <SurfaceView
+        android:id="@+id/camerasurfaceview"
+        android:layout_width="360dp"
+        android:layout_height="640dp"/>
+    <SurfaceView
+        android:id="@+id/previewsurfaceview"
+        android:layout_width="360dp"
+        android:layout_height="640dp"
+        android:visibility="invisible"
+        />
+
+    <cn.com.hesc.picture.JHPhotoView
+        android:id="@+id/mashimgview"
+        android:layout_width="360dp"
+        android:layout_height="640dp"
+        android:scaleType="fitXY"
+        android:background="@android:color/transparent"
+        />
+
+    <RelativeLayout
+        android:id="@+id/titletoolline"
+        android:layout_marginTop="7dp"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@android:color/transparent"
+        android:padding="8dp">
+        <TextView
+            android:id="@+id/close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/mediaclose"/>
+        <TextView
+            android:id="@+id/fbcamera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/camerarection"
+            />
+        <TextView
+            android:id="@+id/flashbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/fbcamera"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/closeflash"
+            android:visibility="invisible"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:layout_gravity="center|bottom"
+        >
+        <ImageButton
+            android:id="@+id/delrecord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/video_delete"
+            android:layout_centerInParent="true"
+            />
+        <ImageButton
+            android:id="@+id/donerecord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/video_done"
+            android:layout_centerInParent="true"
+            android:longClickable="true"
+            />
+        <ImageButton
+            android:id="@+id/modifyrecord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/modifybg"
+            android:src="@drawable/modifyfg"
+            android:layout_centerInParent="true"
+            android:visibility="gone"/>
+        <ImageButton
+            android:id="@+id/recordmedia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/video_recording"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+</FrameLayout>

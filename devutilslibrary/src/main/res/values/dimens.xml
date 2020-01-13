@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="searchedit_text_size">22sp</dimen>
+    <dimen name="searchedit_drawable_padding">4dp</dimen>
+
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="divider_height">15dp</dimen>
+    <dimen name="listview_paddingleft">10dp</dimen>
+    <dimen name="listview_paddingright">10dp</dimen>
+    <dimen name="listview_paddingbottom">10dp</dimen>
+
+    <!-- 下拉刷新列表 -->
+    <dimen name="updatebar_height">60dp</dimen>
+    <dimen name="updatebar_content_height">60dp</dimen>
+    <dimen name="updatebar_padding">10dp</dimen>
+
+
+</resources>
